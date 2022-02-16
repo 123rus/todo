@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Все задачи {% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if todos.count > 0 %}
+      <h1 class="text-center mt-5">Список всех задач:</h1>
+      <table class="table table-success table-striped mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Название</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Дата</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in todos %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.title}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.sent_at}}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="% url 'main' %" type="submit" class="btn btn-danger" onclick="history.go(-1)">Назад</a>
+    </div>
+{% endblock %}
+</div>
